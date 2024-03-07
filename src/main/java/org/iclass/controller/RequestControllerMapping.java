@@ -9,7 +9,7 @@ import org.iclass.controller.community.ListController;
 public class RequestControllerMapping {
 	private static final Map<RequestKeyValue,Controller> mapping = new HashMap<>();
 	
-	public static void init() {
+	public static void init() {    
 		//설계된 url,method 에 따라 처리할 controller 구현체를 Key,Value 로 HashMap에 저장합니다.
 		mapping.put(new RequestKeyValue("/community/list", "GET"), new ListController() );
 //		mapping.put(new RequestKeyValue("/community/write","GET"), new WriteViewController() );
