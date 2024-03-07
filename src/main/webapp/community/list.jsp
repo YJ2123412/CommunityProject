@@ -88,8 +88,9 @@
 			yn=confirm('글쓰기는 로그인이 필요합니다. 로그인 하시겠습니까?')
 			/* 로그인 후 글쓰기로 돌아가기 */
 			if(yn) {
+				// 로그인 후 글쓰기 화면 다시 요청하기 위해 url을 브라우저에 저장하기
 				sessionStorage.setItem('back', './community/write');
-				location.href='../login'  // 로그인 후 글쓰기 url로 redirect 하기 위한 파라미터
+				location.href='../login'  
 			}
 		}else{
 			location.href='write?page=${paging.currentPage }'

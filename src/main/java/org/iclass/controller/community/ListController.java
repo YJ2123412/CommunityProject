@@ -51,7 +51,7 @@ public class ListController implements Controller {
 		//페이지 목록을 화면구현하기 위한 애트리뷰트를 저장합니다.
 		request.setAttribute("paging", paging);
 		
-		//현재날짜시간 저장-출력형식 2개 중 하나 고를때 비교값
+		//현재날짜 애트리뷰트에 저장. 어디에 사용될까요?
 		request.setAttribute("today", LocalDate.now());
 		
 		//요청링크가 /community/list 였고 원하는 jsp도 community 폴더에 있으므로 다음과 같음.
