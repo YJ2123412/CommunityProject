@@ -34,7 +34,7 @@ public class LoginActionController implements Controller {
 		
 		String url= request.getContextPath();
 		if(user != null) {		
-			//로그인 성공
+			//로그인 성공. 로그인 사용자의 정보를 세션에 저장
 			session.setAttribute("user",user);  //핵심.
 			url =  request.getContextPath();
 		}else {			//로그인 실패 정보 쿠키에 저장하기
