@@ -8,7 +8,7 @@
  			(idx,mref,writer,content) 
 		VALUES 
 			(comment_idx_seq.nextval,#{mref},#{writer},#{content})
- 	</insert>  
+ 	</insert>    
  	
  	<delete id="delete" parameterType="int">
  		DELETE FROM 
