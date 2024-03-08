@@ -3,6 +3,7 @@ package org.iclass.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.iclass.controller.book.BookCaseListController;
 import org.iclass.controller.community.CommentsController;
 import org.iclass.controller.community.DeleteController;
 import org.iclass.controller.community.ListController;
@@ -51,7 +52,7 @@ public class RequestControllerMapping {
 //		mapping.put(new RequestKeyValue("/book/list", "GET"), new NewBookListController());
 
 		//책장
-//		mapping.put(new RequestKeyValue("/book/bookcase","GET"), new BookCaseListController());
+		mapping.put(new RequestKeyValue("/book/bookcase","GET"), new BookCaseListController());
 //		mapping.put(new RequestKeyValue("/pay/success","GET"), new BookCasePayRequestSuccessController());
 //		mapping.put(new RequestKeyValue("/pay/fail","GET"), new BookCasePayRequestFailController());
 
