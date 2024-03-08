@@ -3,6 +3,7 @@ package org.iclass.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.iclass.controller.community.CommentsController;
 import org.iclass.controller.community.ListController;
 import org.iclass.controller.community.ReadController;
 import org.iclass.controller.community.WriteController;
@@ -24,7 +25,7 @@ public class RequestControllerMapping {
 //		mapping.put(new RequestKeyValue("/community/update","GET"), new UpdateViewController() );
 //		mapping.put(new RequestKeyValue("/community/update","POST"), new UpdateController() );
 //		mapping.put(new RequestKeyValue("/community/delete","GET"), new DeleteController() );		//오류 처리 위해 POST로 변경
-//		mapping.put(new RequestKeyValue("/community/comments","POST"), new CommentsController());
+		mapping.put(new RequestKeyValue("/community/comments","POST"), new CommentsController());
 		//회원가입
 //		mapping.put(new RequestKeyValue("/join","GET"), new MemberJoinController());
 //		mapping.put(new RequestKeyValue("/join","POST"), new MemberSaveController());
