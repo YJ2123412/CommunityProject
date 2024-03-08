@@ -46,6 +46,11 @@ public class CommentsController implements Controller {
 		//댓글 갯수 변경  
 		dao.setCommentCount(mref);
 		response.sendRedirect(url);
+		
+		
+		
 	}
+	
+	
 
 }
