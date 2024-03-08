@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="bookcase">
+	 
+ 	<select id="saleList" resultType="org.iclass.vo.BookcaseBook" parameterType="java.util.Map">
+ 		SELECT *
+ 		FROM
+ 			bookcase
+ 		<where>
+	 		<if test="status!=null">
+	 			 status=#{status}	
+	 		</if>	
+	 		<if test="title!=null">
+	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+					title=#{title}	 				
+	 			</trim>
+	 		</if>
+ 		</where>
+ 	</select>
+ 	<select id="getOne" parameterType="String" resultType="org.iclass.vo.BookcaseBook">
+ 		SELECT *
+ 		FROM
+ 			bookcase
+ 		WHERE bcode = #{bcode}
+ 	</select>
+ 	
+ 	<insert id="saleOne" parameterType="org.iclass.vo.SalePayDetails">
+ 		INSERT INTO sale_details 
+ 		VALUES (#{bcode},#{orderid},#{amount},#{paydate},#{buyuser},#{paytype},#{paymentkey})
+ 	</insert>
+ 	<update id="changeStatus" parameterType="String">
+ 		UPDATE bookcase SET status='N' WHERE bcode=#{bcode}
+ 	</update>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
