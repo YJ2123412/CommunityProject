@@ -25,6 +25,8 @@ public class DeleteController implements Controller {
 		HttpSession session = request.getSession();
 		DemoMember user = (DemoMember) session.getAttribute("user");
 		Community vo = dao.selectByIdx(idx);
+		
+		//GET 요청은 삭제 실행하기 전에 인가, 권한 확인
 		if(vo==null || !vo.getWriter().equals(user.getUserid())) throw new RuntimeException();
 		
 		int result = dao.delete(idx);

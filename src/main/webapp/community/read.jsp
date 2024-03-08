@@ -53,7 +53,8 @@
 					<!-- textarea에 입력한 엔터는 \n db에도 \n으로 저장됩니다.
 					     브라우저 출력은 줄바꿈은 <br> 태그 해결1) pre 태그, 해결  2) \n을 <br>로 대치-->	
 					<li>
-						<pre><c:out value="${vo.content}"/></pre>
+<textarea rows="20"; disabled="disabled"; 
+style = "backround-color:#f3f3f3;font-size:inherit;resize:none;border:none"><c:out value="${vo.content}"/></textarea>
 					</li>				
 				</ul>
 			</li>
@@ -95,7 +96,7 @@
 	<input type="hidden" name="f" value="0">
 	<input type="hidden" name="page" value="${page }">  <!-- 현재페이지 번호 전달 - 순서8) -->
 	<input type="hidden" name="writer" class="input" value="${user.userid }">
-	<!-- 구현 보류 : 로그인한 사용자가 작성할때는 로그인 이메일,닉네임 가져와서 표시 -->			
+	<!-- 구현 완료 : 로그인한 사용자가 작성할때는 로그인 이메일,닉네임 가져와서 표시 -->			
 		<ul>
 			<%-- <li>${user.userid }</li> --%>
 			<li>
@@ -106,7 +107,7 @@
 						placeholder="로그인 후에 댓글을 작성하세요." class="input"></textarea>
 					</li>				
 					<li style="align-self: center;margin-bottom: 20px;">
-<!-- 저장버튼 테스트를 위해 변경 --><c:if test="${sessionScope.user != null }">  <!-- 구현 보류 : 로그인 했을때 -->
+<!-- 저장버튼 테스트를 위해 변경 --><c:if test="${sessionScope.user != null }">  <!-- 구현 완료 : 로그인 했을때 -->
 								<button type="button" onclick="executeCmt('1',0)">저장</button>  <!-- 2번째 인자 0은 의미없음. -->
 							</c:if>	
 							<c:if test="${sessionScope.user == null }">		<!-- 구현 보류  : 로그인 안했들때 -->
@@ -134,7 +135,9 @@
 				</ul>
 			</li>
 			<li>
-				<pre class="cmtcontent"><c:out value="${cmt.content }" /></pre>
+				<textarea class="cmtcontent" 
+						style="border: none; resize:none;"
+				><c:out value="${cmt.content }" /></textarea>
 			</li>
 			</c:forEach>
 		</ul>	
@@ -144,18 +147,19 @@
 </div>
 <script type="text/javascript">
 	const user = '${user.userid}'
-	const txtarea = document.querySelector('textarea')
+	const txtarea = document.querySelector('textarea[name="content"]')
 	if(user.length !=0)
 		txtarea.placeholder = user + '님 댓글을 작성하세요.'
 
+	//댓글 등록과 삭제 모두 POST 방식으로 함
 	function executeCmt(fval,cidx){	/* 댓글 작성추가 와 삭제는 매개변수 f의 값으로 구별한다. idx는 매개변수는 삭제할 댓글번호 */
 		console.log(fval)
 		document.forms[0].f.value=fval
-		if(fval==='2') {
+		if(fval==='2') { 	//댓글 삭제
 			document.forms[0].idx.value=cidx		/* hidden 타입 idx의 value 로 설정*/
 			const yn = confirm('댓글 삭제하시겠습니까?')
 			if(yn)	document.forms[0].submit()	
-		}else if(fval==='1'){
+		}else if(fval==='1'){	//댓글 등록
 			document.forms[0].submit()			
 		}
 	}
@@ -165,7 +169,7 @@
 	}
 	
 	function login() {
-		sessionStorage.setItem('back', location.href);
+		sessionStorage.setItem('back', location.href);	//location.href는 현재의 요청 url 읽어옴
 		location.href='../login'  // 로그인 후 글쓰기 url로 redirect 하기 위한 파라미터
 	}
 	
