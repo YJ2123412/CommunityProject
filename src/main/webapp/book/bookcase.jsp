@@ -41,7 +41,8 @@
 						<div style="height:80%;">
 						<!-- todo: 사용자가 파일(이미지, 텍스트)을 업로드했을떄 server 컴퓨터 특정 폴더에 저장되도록 할 것,
 							그때는 src 속성값도 url 변경 -->
-							<img src="../images/bookcase/${bo.cover }" alt="${bo.title }">
+							<%-- <img src="../images/bookcase/${bo.cover }" alt="${bo.title }"> --%>
+							<img src="/upload/${bo.cover }" alt="${bo.title }">
 						</div>
 						<div  class="intro">	
 							<c:if test="${bo.status=='N' }">

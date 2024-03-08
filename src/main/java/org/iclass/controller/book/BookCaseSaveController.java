@@ -22,7 +22,12 @@ public class BookCaseSaveController implements Controller {
 		request.setCharacterEncoding("UTF-8");	
 		//사용자가 업로드한 파일이 저장될 서버 경로(파일 시스템 경로)
 		
+		
 		String path ="C:\\Users\\YJ\\git\\DemoProject\\img";
+		
+		//서버의 로컬 경로에 대해 url을 지정 -> 톰캣의 server.xml
+		//<Context docBase="C:/Users/YJ/git/DemoProject/img" path="/upload"/>
+		
 		
 		//압로드 가능한 최대 크기(바이트) ->10mbyte
 		int maxSize = 10*1024*1024;
