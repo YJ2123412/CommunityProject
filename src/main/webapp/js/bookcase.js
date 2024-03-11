@@ -5,7 +5,7 @@ function tossPayInit() {
 	// 토스페이먼츠 회원가입하기 전이라면, 아래 문서용 테스트 키를 사용하세요. 문서용 테스트 키는 _docs_가 포함되어 있어요.
 	// 토스페이먼츠에 회원가입했다면, 개발자센터에서 내 테스트 상점 키를 확인하세요.
 	// 로그인한 상태라면, 문서에 있는 클라이언트 키, 시크릿 키가 내 테스트 키로 바뀌어요.
-	const clientKey = test_ck_yL0qZ4G1VO5nAe7JXkbO8oWb2MQY
+	const clientKey = 'test_ck_yL0qZ4G1VO5nAe7JXkbO8oWb2MQY'
 
     const customerKey = crypto.randomUUID() //랜덤 글자 나오게 함
     console.log('customerKey',customerKey);
@@ -48,7 +48,7 @@ function tossPayInit() {
         orderName: obj.title,                 
         successUrl: window.location.origin + "/DemoProject/pay/success",  
         failUrl: window.location.origin + "/DemoProject/pay/fail",        
-        customerName: obj.saleuserㅇ
+        customerName: obj.saleuser
     }
     console.log(payObj)
     button.addEventListener("click", function () {
