@@ -30,11 +30,20 @@
 				<h3>책장</h3>
 				<p>판매 중인 중고도서입니다.</p>
 				<hr style="color:white;">
+					<c:if test="${user !=null }">
+						<div style="text-align: center;">
+						<a href="form">판매 등록</a></div>
+					</c:if>			
 				<div id="mainarea">
 					<c:forEach var="bo" items="${saleList }">
 					<div class="gallery bookcase">
 						<div style="height:80%;">
-							<img src="../images/bookcase/${bo.cover }" alt="${bo.title }">
+<%-- 		<img src="../images/bookcase/${bo.cover }" alt="${bo.title }"> --%>
+						<img src="/upload/${bo.cover }" alt="${bo.title }">
+							<!-- todo : 사용자가 파일 (이미지,텍스트 등)을 업로드 했을 때
+								        서버 컴퓨터 특정 폴더에 저장되도록 하며
+								        그 때에는 src 속성값도 url 변경합니다.
+							 -->
 						</div>
 						<div  class="intro">	
 							<c:if test="${bo.status=='N' }">
