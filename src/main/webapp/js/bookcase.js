@@ -10,6 +10,7 @@ function tossPayInit() {
     const customerKey = crypto.randomUUID() //랜덤 글자 나오게 함
     console.log('customerKey',customerKey);
     //"VUEWF1yYWn17zOh3L6Wot" // 내 상점에서 고객을 구분하기 위해 발급한 고객의 고유 ID(임의값)
+
 //    const coupon = document.getElementById("coupon-box")
     const button = document.getElementById("payment-button")
     // ------  결제위젯 초기화 ------ 
@@ -47,7 +48,7 @@ function tossPayInit() {
         orderName: obj.title,                 
         successUrl: window.location.origin + "/DemoProject/pay/success",  
         failUrl: window.location.origin + "/DemoProject/pay/fail",        
-        customerName: obj.saleuser
+        customerName: obj.saleuserㅇ
     }
     console.log(payObj)
     button.addEventListener("click", function () {

@@ -50,7 +50,7 @@
 								<i class="fa-solid fa-circle-xmark"></i> 판매완료
 							</c:if>
 							<c:if test="${bo.status=='Y' }">
-							<!--결제에 필요한 모든 정보를 data-all이라는 사용자 속성으로 저장  -->
+							<!-- 결제에 필요한 모든 정보를 data-all 사용자 속성으로 저장 -->
 								<a data-all="${bo.bcode},${bo.title},${bo.price},${bo.saleuser}"><i class="fa-regular fa-circle-play"></i> 구매하기</a>
 							</c:if>
 							<div>
@@ -118,7 +118,7 @@
 	const obj ={}
 	let orderid=''
   	</script>		
-  	<script src="../js/bookcase.js"></script>		<!--tossPayInit이 정의되어 있음  -->
+  	<script src="../js/bookcase.js"></script>		  <!--tossPayInit 함수가 정의 되어있습니다.  -->
 	<script>
 	  	const modal = new bootstrap.Modal(document.querySelector(".modal"))  /* 부트스트랩의 모달 기능을 제공하는 객체*/
 		document.querySelector("#mainarea").addEventListener('click',function(evt){
@@ -143,7 +143,6 @@
 			obj.title = arr[1];
 			obj.price = arr[2];
 			obj.saleuser = arr[3];
-			/* obj 객체는 tossPayInit() 함수에서 사용할 예정 */
 			const now = new Date();
 			/* 정규식에서 \d: 숫자 , \D: 숫자 아닌 것 ''->없애버림(공백이 아님)  */
 			orderid = now.toISOString().replace(/\D/g, '').slice(2, 14);
@@ -152,7 +151,7 @@
 			document.querySelector(".modal-body #title").innerHTML = obj.title
 			document.querySelector(".modal-body #price").innerHTML = Number(obj.price).toLocaleString("ko-KR")
 			modal.show();
-			tossPayInit();	//toss 결제창 만드는 함수
+			tossPayInit();		//toss 결제창 만드는 함수.
 			}
 		})
 		
