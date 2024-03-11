@@ -19,13 +19,11 @@ public class BookcaseDao {
 		return dao;
 	}
 	
-	public int register(BookcaseBook book) {
-		SqlSession sqlsession = SqlSessionBean.getSession();
-		int result = sqlsession.insert("register", book);
-		sqlsession.commit();
-		sqlsession.close();
-		return result;
-	}
+	/*
+	 * public int register(BookcaseBook book) { SqlSession sqlsession =
+	 * SqlSessionBean.getSession(); int result = sqlsession.insert("register",
+	 * book); sqlsession.commit(); sqlsession.close(); return result; }
+	 */
 	public List<BookcaseBook> saleList(Map<String,String> map) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<BookcaseBook> list = sqlSession.selectList("bookcase.saleList",map);
