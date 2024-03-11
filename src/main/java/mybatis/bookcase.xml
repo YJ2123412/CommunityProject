@@ -33,6 +33,13 @@
  	<update id="changeStatus" parameterType="String">
  		UPDATE bookcase SET status='N' WHERE bcode=#{bcode}
  	</update>
+ 	<insert id="register" parameterType="org.iclass.vo.BookcaseBook">
+ 		INSERT INTO bookcase(bcode,title,writer,publisher,pubdate,saleuser,price,cover)
+ 		VALUES (#{bcode},#{title},#{writer},#{publisher},#{pubdate,jdbcType=VARCHAR},#{saleuser},#{price},#{cover})
+ 	</insert>
+ 	<!-- jdbcType=VARCHAR  와 같은 설정은 null 값을 저장할 때 꼭 해야 합니다. 
+ 	     pubdate는 db에서 널 허용 했으므로 값이 없어도 되며 그 때에는 pubdate 컬럼의 데이터 형식을 알려주는 내용입니다.
+ 	-->
  </mapper>
  
  
