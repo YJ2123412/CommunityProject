@@ -3,8 +3,11 @@ package org.iclass.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.iclass.controller.api.ApiPaymentSaveController;
 import org.iclass.controller.book.BookCaseFormController;
 import org.iclass.controller.book.BookCaseListController;
+import org.iclass.controller.book.BookCasePayRequestFailController;
+import org.iclass.controller.book.BookCasePayRequestSuccessController;
 import org.iclass.controller.book.BookCaseSaveController;
 import org.iclass.controller.community.CommentsController;
 import org.iclass.controller.community.DeleteController;
@@ -56,8 +59,8 @@ public class RequestControllerMapping {
 
 		//책장
 		mapping.put(new RequestKeyValue("/book/bookcase","GET"), new BookCaseListController());
-//		mapping.put(new RequestKeyValue("/pay/success","GET"), new BookCasePayRequestSuccessController());
-//		mapping.put(new RequestKeyValue("/pay/fail","GET"), new BookCasePayRequestFailController());
+		mapping.put(new RequestKeyValue("/pay/success","GET"), new BookCasePayRequestSuccessController());
+		mapping.put(new RequestKeyValue("/pay/fail","GET"), new BookCasePayRequestFailController());
 		//추가
 		mapping.put(new RequestKeyValue("/book/form","GET"), new BookCaseFormController());
 		mapping.put(new RequestKeyValue("/book/save","POST"), new BookCaseSaveController());
@@ -76,7 +79,7 @@ public class RequestControllerMapping {
 //		mapping.put(new RequestKeyValue("/api/auth/checkId", "POST"), new ApiCheckIdController() );
 //		mapping.put(new RequestKeyValue("/api/auth/join", "POST"), new ApiMemberJoinController() );
 //		mapping.put(new RequestKeyValue("/api/book", "GET"), new ApiGetBookOneController() );
-//		mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController() );
+		mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController() );
 
 	}
 	//url,method 필드를 저장하는 key 를 전달받아 HashMap에서 value(컨트롤러)를 리턴
