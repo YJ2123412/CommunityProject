@@ -119,7 +119,7 @@
 
 			let yn
 			if('${user.userid}'==''){
-				yn=confirm('글쓰기는 로그인이 필요합니다. 로그인 하시겠습니까?')
+				yn=confirm('구매는 로그인이 필요합니다. 로그인 하시겠습니까?')
 				/* 로그인 후 글쓰기로 돌아가기 */
 				if(yn) {
 					sessionStorage.setItem('back', 'book/bookcase');
